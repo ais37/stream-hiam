@@ -7,7 +7,7 @@ const querystring = require('querystring');
 
 
 bot.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log("By shadow");
 
 });
 
