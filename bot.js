@@ -9,10 +9,11 @@ const querystring = require('querystring');
 bot.on("ready", () => {
   console.log("By shadow");
 
+
 });
 
-const ownerid = "506671586930327562";
-const prefix = "h";
+const ownerid = "506671586930327562"; // ضع ايديك هنا
+const prefix = "h"; // البرفكس هنا
 
 bot.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
@@ -113,68 +114,7 @@ bot.on('message', message => {
     message.delete();
     message.channel.send(args.join(' '.repeat(amount / 2)).split('').join(' '.repeat(amount)));
 
- } else
-
- if (message.content.startsWith(prefix + "منشن")) {
-  if (!message.guild || !message.guild.members) {
-        message.channel.send('You must run this command from within a server.').then(message => {message.delete(3000)})
-    }  
-    let members = message.guild.members.array().sort((a, b) => a.user.username.localeCompare(b.user.username));
-
-    if (args.length > 0) {
-        members = members.filter(member => hasRole(member, args[0]));
-    }
-
-    if (members.length < 1) {
-        message.channel.send('No members could be found.').then(message => {message.delete(3000)})
-    }
-
-    message.delete();
-    let users = members.map(m => `${m.user}${(m.user.bot ? ' [BOT]' : '')}`);
-    const body = users.join('\n');
-
-    if (body.length < 2000) {
-        message.channel.send(body)//.then(message => {message.delete(60000)})
-
-       let raw = members.map(m => `${m.user.username}${m.user.bot ? ' [BOT]' : ''}`).join('\n');
-
-
-        let trimmed = body.substr(0, 1500);
-        trimmed = trimmed.slice(0, trimmed.lastIndexOf('\n'));
-        message.channel.send(trimmed)};
-
-
- } else
-  if (message.content.startsWith(prefix + "e")) {
-    if(args){
-            let embed = new Discord.RichEmbed()
-    //.setAuthor("انتظرتك بس طال الانتظار",message.author.avatarURL)
-    .setDescription(args.join("  "))
-    //.setColor(990099)
-    .setColor(message.member.displayHexColor)
-    message.channel.sendEmbed(embed);
-    message.delete();
-      } else 
-      if(!args) {
-      message.channel.send("**Can You But Something For Me To Transfer it to embed?**").then(message => {message.delete(3000)})          
-      }
-  
- } else
-
-    
-
-       if (message.content.startsWith(prefix + "avatafpodkgpkfpdokhpofdkhpfodkgkfopdjopr")) {
-           var mentionned = message.mentions.users.first();
-    var MsH;
-      if(mentionned){
-          var MsH = mentionned;
-      } else {
-          var MsH = message.author;
-          
-      }
-          message.channel.send(MsH.avatarURL)
-          message.delete(3000);
-	  } 
+ }
 		  
 });
 
